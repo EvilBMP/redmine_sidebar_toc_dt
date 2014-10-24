@@ -9,7 +9,7 @@
 
 ### Installation
 
-NOT UPDATED YET
+Change to redmine/plugins folder and run:
 
 ```bash
   git clone https://github.com/TriggerAu/redmine_sidebar_toc_dt.git
