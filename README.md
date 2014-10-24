@@ -2,12 +2,17 @@
 
 ### Description
 
-  Provides navigation by the header of the anchor links in the wiki sidebar, on each wiki page.
+  This plugin is based on https://github.com/twinslash/redmine_sidebar_toc.
+
+  * Provides navigation by the header of the anchor links in the wiki sidebar, on each wiki page.
+  * uses JQuery to keep the TOC on screen as window scrolls
 
 ### Installation
 
+NOT UPDATED YET
+
 ```bash
-  git clone https://github.com/twinslash/redmine_sidebar_toc.git
+  git clone https://github.com/TriggerAu/redmine_sidebar_toc_dt.git
   bundle install
 ```
 
@@ -17,4 +22,6 @@ Just add some h(1-6) tags to your wiki page content. Sidebar automatically provi
 
 
 ### Screenshot
-![redmine_sidebar_toc](https://raw.github.com/twinslash/redmine_sidebar_toc/master/sidebar_toc_screen.png)
+
+Same functionality as the original, but the TOC will float down the page as you scroll
+![redmine_sidebar_toc](https://raw.github.com/TriggerAu/redmine_sidebar_toc_dt/master/sidebar_toc_screen.png)

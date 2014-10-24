@@ -1,5 +1,6 @@
+<div id="sidebarTOC">
 <% unless @content.nil?  %>
-  <h3>Сontents</h3>
+  <h3>Page Сontents</h3>
   <% nodes =  Nokogiri::HTML(textilizable(@content, :text)).xpath('//h1|//h2|//h3|//h4|//h5|//h6') %>
   <% link_href = Nokogiri::HTML(textilizable(@content, :text)).xpath('//a[@name]/@name') %>
 
@@ -17,3 +18,24 @@
 <%= link_to l(:field_start_page), {:action => 'show', :id => nil} %><br />
 <%= link_to l(:label_index_by_title), {:action => 'index'} %><br />
 <%= link_to l(:label_index_by_date), {:controller => 'wiki', :project_id => @project, :action => 'date_index'} %><br />
+
+</div>
+
+<script type="text/javascript">
+	var min_scroll;
+	min_scroll = $("#top-menu").outerHeight() + $("#header").outerHeight()
+
+	var sidebarTOC = $('#sidebarTOC');
+    $(window).scroll(
+        function() {
+            var t = $(window).scrollTop();
+            if (t < min_scroll) {
+				//top of page behaviour
+				sidebarTOC.css({position: "relative"}).css({top: ""});
+            } else {
+                // once the page has scrolled
+                sidebarTOC.css({position: "fixed"}).css({top: "0px"});
+            }
+        }
+    );
+</script>
