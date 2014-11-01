@@ -22,19 +22,27 @@
 </div>
 
 <script type="text/javascript">
-	var min_scroll;
+	var min_scroll,main_margin,sidebarHeight;
 	min_scroll = $("#top-menu").outerHeight() + $("#header").outerHeight()
-
+	main_margin = 0;
+	try {
+		main_margin = parseInt($("#main").css("margin-top").replace("px",""));
+	} catch(e){}
+	
 	var sidebarTOC = $('#sidebarTOC');
+	sidebarHeight = sidebarTOC.parent().height()
+
     $(window).scroll(
         function() {
             var t = $(window).scrollTop();
             if (t < min_scroll) {
 				//top of page behaviour
 				sidebarTOC.css({position: "relative"}).css({top: ""});
+				sidebarTOC.parent().css({"margin-top":""}).css({height:""});
             } else {
                 // once the page has scrolled
-                sidebarTOC.css({position: "fixed"}).css({top: "0px"});
+                sidebarTOC.css({position: "fixed"}).css({top: main_margin + "px"});
+				sidebarTOC.parent().css({"margin-top": (t - min_scroll) + "px"}).css({height:sidebarHeight + "px"});
             }
         }
     );
